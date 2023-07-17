@@ -1,9 +1,8 @@
-from sqlalchemy import Column, Integer, String
-from connection import Base
+from tortoise import Model, fields
 
 
-class Item(Base):
-    __tablename__ = "item"
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    email = Column(String, unique=True, index=True)
+class Item(Model):
+    id = fields.IntField(pk=True)
+    content = fields.CharField(max_length=500)
+    created_at = fields.DatetimeField(auto_now_add=True)  # auto_now_add 创建的时候更新
+    updated_at = fields.DatetimeField(auto_now=True)  # auto_now 每次修改更新

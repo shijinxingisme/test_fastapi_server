@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from .apis.routes import router as api_router
-from .services.routes import router as service_router
-from .db.connection import Base, engine
+from apis.routes import router as api_router
+from services.routes import router as service_router
+from db.connection import Base, engine
 
 app = FastAPI()
 

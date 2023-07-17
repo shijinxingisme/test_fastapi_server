@@ -1,21 +1,16 @@
 from fastapi import APIRouter
-from ..db.connection import SessionLocal
-from ..db.models import Item
+from db.models import Item
 
 router = APIRouter()
 
 
-@router.get("/items")
+@router.get("/get_items")
 async def get_items():
-    db = SessionLocal()
-    items = db.query(Item).all()
+    items = await Item.all()
     return {"items": items}
 
 
-@router.post("/items")
+@router.post("/create_item")
 async def create_item(item: Item):
-    db = SessionLocal()
-    db.add(item)
-    db.commit()
-    db.refresh(item)
+    await Item(item).save()
     return {"item": item}
