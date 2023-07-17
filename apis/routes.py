@@ -8,7 +8,7 @@ router = APIRouter()
 @router.get("/items")
 async def get_items():
     # 处理获取 items 的逻辑
-    return {"message": "Get items"}
+    return {"message": "Get items 666"}
 
 
 @router.post("/items")

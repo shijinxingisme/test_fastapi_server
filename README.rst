@@ -15,3 +15,5 @@
 
 - 生成项目包文件
     pip freeze > requirements.txt
+- 生成方法2
+    pip list --format=freeze > requirements.txt
