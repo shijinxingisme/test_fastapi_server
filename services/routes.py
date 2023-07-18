@@ -18,4 +18,5 @@ async def create_item(item: ItemPydantic):
     # await Item.create(**item.dict(exclude_unset=True))
     # 。 exclude_unset=True  参数的作用是排除那些未设置值的字段，只包含已设置的字段
     item_obj = await Item.create(**item.model_dict(exclude_unset=True))
+    # item_obj = await Item.create(**item.dict())
     return item_obj
