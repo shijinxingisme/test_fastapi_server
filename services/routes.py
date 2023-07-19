@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from db.models import Item, ItemPydantic
 
 router = APIRouter()
@@ -20,3 +20,13 @@ async def create_item(item: ItemPydantic):
     item_obj = await Item.create(**item.model_dict(exclude_unset=True))
     # item_obj = await Item.create(**item.dict())
     return item_obj
+
+
+# @router.post("/getAdminListBySearchAndPage")
+# async def getAdminListBySearchAndPage(request: Request):
+#     data =await request.json()
+#     current_page = data.get("currentPage")
+#     page_size = data.get("pageSize")
+#     search_name = data.get("searchName")
+#
+#     return {"data": ""}

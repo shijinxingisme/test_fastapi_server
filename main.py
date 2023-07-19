@@ -15,8 +15,8 @@ DATABASE_FILE = BASE_DIR / "app.db"
 if not DATABASE_FILE.exists():
     DATABASE_FILE.touch()
 
-# DATABASE_URL = f"sqlite:///{DATABASE_FILE}"
-DATABASE_URL = f"postgresql://{db_username}:{db_password}@{db_host}:{db_port}/{db_name}"
+DATABASE_URL = f"sqlite:///{DATABASE_FILE}"
+# DATABASE_URL = f"postgresql://{db_username}:{db_password}@{db_host}:{db_port}/{db_name}"
 
 register_tortoise(app,
                   db_url=DATABASE_URL,
